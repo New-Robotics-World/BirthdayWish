@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attention</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .birthday-text {
+            font-size: 60px;
+            font-family: fantasy;
+            color: #ff4500;
+            margin-top: 50px;
+            animation: rainbow 3s infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes rainbow {
+            0% { color: #ff4500; }
+            20% { color: #ffa500; }
+            40% { color: #ffd700; }
+            60% { color: #adff2f; }
+            80% { color: #00ff7f; }
+            100% { color: #1e90ff; }
+        }
+
+        .attention-container {
+            margin-top: 50px;
+        }
+        .attention-message {
+            font-size: 28px;
+            color: #ff4500;
+            margin-bottom: 20px;
+        }
+        .gift-image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            animation: spin 5s infinite linear;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        video#background-video {
+            position: fixed;
+            right: 0;
+            top: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="attention video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 class="birthday-text">Attention!</h1>
+
+    <div class="attention-container">
+        <div class="attention-message">Don't forget to smile today! 😊</div>
+        <img src="gift.png" alt="Gift" class="gift-image">
+
+        <div class="attention-message">Cherish every moment. 🎁</div>
+        <img src="gift.png" alt="Gift" class="gift-image">
+
+        <div class="attention-message">You are loved! 💖</div>
+        <img src="gift.png" alt="Gift" class="gift-image">
+    </div>
+
+</body>
+</html>

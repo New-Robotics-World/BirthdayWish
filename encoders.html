@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoder</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Encode Your Message</h2>
+        <input type="text" id="plainText" placeholder="Enter plain text">
+        <input type="text" id="key" placeholder="Enter key">
+        <button onclick="encode()">Encode</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function encode() {
+            const plainText = document.getElementById('plainText').value;
+            const key = parseInt(document.getElementById('key').value);
+            let encodedText = '';
+
+            for (let i = 0; i < plainText.length; i++) {
+                encodedText += String.fromCharCode(plainText.charCodeAt(i) + key);
+            }
+
+            document.getElementById('output').innerText = `Encoded Text: ${encodedText}`;
+        }
+    </script>
+</body>
+</html>

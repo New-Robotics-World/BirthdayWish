@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Akka</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        video#background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            background-color: #ff69b4;
+            padding: 10px 0;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        
+    header nav a  {
+        font-family: monospace;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+    header nav a span:hover {
+        text-decoration: underline;
+    }
+
+
+
+        .birthday-text {
+            font-size: 60px;
+            font-family: fantasy;
+            color: #ff4500;
+            margin-top: 50px;
+            animation: rainbow 3s infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes rainbow {
+            0% { color: #ff4500; }
+            20% { color: #ffa500; }
+            40% { color: #ffd700; }
+            60% { color: #adff2f; }
+            80% { color: #00ff7f; }
+            100% { color: #1e90ff; }
+        }
+
+        .animation-container {
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cake {
+            width: 250px;
+            height: 250px;
+            margin: 20px;
+            display: inline-block;
+            animation: zoom 3s infinite;
+        }
+
+        .gift {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            display: inline-block;
+            animation: moveAndZoom 3s infinite;
+        }
+
+        @keyframes zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes moveAndZoom {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.1); }
+            50% { transform: translate(0, 20px) scale(1.2); }
+            75% { transform: translate(-20px, -20px) scale(1.1); }
+        }
+
+        .popup {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: popup 5s infinite;
+            z-index: 2;
+        }
+
+        @keyframes popup {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: gold;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Additional Sparkles for a Festive Look */
+        .sparkle:nth-child(2) { animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { animation-delay: 1s; }
+        .sparkle:nth-child(4) { animation-delay: 1.5s; }
+        .sparkle:nth-child(5) { animation-delay: 2s; }
+        .sparkle:nth-child(6) { animation-delay: 2.5s; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop id="background-video">
+        <source src="your-background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gifts.html">Gifts</a>
+            <a href="attention.html">Attention</a>
+            <a href="#" id="toggleDecoder" title="Open Decoder"> decode </a>
+        </nav>
+    </header>
+    
+
+    <h1 class="birthday-text"><br><br>Happy Birthday!<br> Akkaaaaaaoooooooooo</h1>
+
+    <div class="animation-container">
+        <img src="gift.png" alt="Birthday Gift" class="gift">
+        <img src="cake.png" alt="Birthday Cake" class="cake">
+        <img src="gift.png" alt="Birthday Gift" class="gift">
+    </div>
+
+    <div class="popup">
+        🎉 Surprise! Enjoy your special day! 🎉
+    </div>
+
+    <!-- Sparkles -->
+    <div class="sparkle" style="top: 10%; left: 20%;"></div>
+    <div class="sparkle" style="top: 30%; left: 50%;"></div>
+    <div class="sparkle" style="top: 60%; left: 70%;"></div>
+    <div class="sparkle" style="top: 80%; left: 30%;"></div>
+    <div class="sparkle" style="top: 40%; left: 80%;"></div>
+
+    <script>
+        document.getElementById('toggleDecoder').addEventListener('click', function(event) {
+            event.preventDefault();
+            const iframe = document.createElement('iframe');
+            iframe.src = 'decoders.html';
+            iframe.width = '35%';
+            iframe.height = '50%';
+            iframe.style.position = 'fixed';
+            iframe.style.bottom = '0';
+            iframe.style.left = '0';
+            iframe.style.zIndex = '1000';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius= '20%';
+            document.body.appendChild(iframe);
+    
+            // Optional: Close iframe on clicking outside
+            document.addEventListener('click', function(e) {
+                if (!iframe.contains(e.target) && e.target.id !== 'toggleDecoder') {
+                    document.body.removeChild(iframe);
+                }
+            });
+        });
+    
+        
+    </script>
+    
+
+</body>
+</html>
